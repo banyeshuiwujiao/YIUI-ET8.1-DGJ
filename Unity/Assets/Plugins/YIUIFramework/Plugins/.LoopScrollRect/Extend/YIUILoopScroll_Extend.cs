@@ -1,5 +1,4 @@
-﻿using ET;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace YIUIFramework
 {
@@ -21,20 +20,20 @@ namespace YIUIFramework
         public int           ItemEnd                => m_Owner.u_ItemEnd;                               //当前显示的最后一个index 被+1了注意                      
 
         //在开始时用startItem填充单元格，同时清除现有的单元格
-        public async ETTask RefillCells(int startItem = 0, float contentOffset = 0)
+        public void RefillCells(int startItem = 0, float contentOffset = 0)
         {
-            await m_Owner.RefillCells(startItem, contentOffset);
+            m_Owner.RefillCells(startItem, contentOffset);
         }
 
         //在结束时重新填充endItem中的单元格，同时清除现有的单元格
-        public async ETTask RefillCellsFromEnd(int endItem = 0, bool alignStart = false)
+        public void RefillCellsFromEnd(int endItem = 0, bool alignStart = false)
         {
-            await m_Owner.RefillCellsFromEnd(endItem, alignStart);
+            m_Owner.RefillCellsFromEnd(endItem, alignStart);
         }
 
-        public async ETTask RefreshCells()
+        public void RefreshCells()
         {
-            await m_Owner.RefreshCells();
+            m_Owner.RefreshCells();
         }
 
         public void ClearCells()
@@ -57,16 +56,16 @@ namespace YIUIFramework
             return Mathf.Clamp(index, 0, TotalCount - 1);
         }
 
-        public async ETTask ScrollToCell(int index, float speed)
+        public void ScrollToCell(int index, float speed)
         {
             if (TotalCount <= 0) return;
-            await m_Owner.ScrollToCell(GetValidIndex(index), speed);
+            m_Owner.ScrollToCell(GetValidIndex(index), speed);
         }
 
-        public async ETTask ScrollToCellWithinTime(int index, float time)
+        public void ScrollToCellWithinTime(int index, float time)
         {
             if (TotalCount <= 0) return;
-            await m_Owner.ScrollToCellWithinTime(GetValidIndex(index), time);
+            m_Owner.ScrollToCellWithinTime(GetValidIndex(index), time);
         }
 
         public void StopMovement()

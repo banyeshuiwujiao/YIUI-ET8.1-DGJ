@@ -4,7 +4,6 @@ using UnityEngine.EventSystems;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using ET;
 
 namespace UnityEngine.UI
 {
@@ -19,7 +18,7 @@ namespace UnityEngine.UI
             dataSource.ProvideData(transform, index);
         }
         
-        protected override async ETTask<RectTransform> GetFromTempPool(int itemIdx)
+        protected override RectTransform GetFromTempPool(int itemIdx)
         {
             RectTransform nextItem = null;
             if (deletedItemTypeStart > 0)
@@ -36,7 +35,7 @@ namespace UnityEngine.UI
             }
             else
             {
-                nextItem = (await prefabSource.GetObject(itemIdx)).transform as RectTransform;
+                nextItem = prefabSource.GetObject(itemIdx).transform as RectTransform;
                 nextItem.transform.SetParent(m_Content, false);
                 nextItem.gameObject.SetActive(true);
             }

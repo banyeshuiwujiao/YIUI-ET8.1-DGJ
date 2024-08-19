@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using ET;
 
 namespace UnityEngine.UI
 {
@@ -56,7 +55,7 @@ namespace UnityEngine.UI
             }
         }
 
-        protected override async ETTask<(bool,Bounds,Bounds)> UpdateItems(Bounds viewBounds, Bounds contentBounds)
+        protected override bool UpdateItems(ref Bounds viewBounds, ref Bounds contentBounds)
         {
             bool changed = false;
 
@@ -122,10 +121,10 @@ namespace UnityEngine.UI
 
             if (viewBounds.min.y < contentBounds.min.y + m_ContentBottomPadding)
             {
-                float size = await NewItemAtEnd(), totalSize = size;
+                float size = NewItemAtEnd(), totalSize = size;
                 while (size > 0 && viewBounds.min.y < contentBounds.min.y + m_ContentBottomPadding - totalSize)
                 {
-                    size = await NewItemAtEnd();
+                    size = NewItemAtEnd();
                     totalSize += size;
                 }
                 if (totalSize > 0)
@@ -134,10 +133,10 @@ namespace UnityEngine.UI
 
             if (viewBounds.max.y > contentBounds.max.y - m_ContentTopPadding)
             {
-                float size = await NewItemAtStart(), totalSize = size;
+                float size = NewItemAtStart(), totalSize = size;
                 while (size > 0 && viewBounds.max.y > contentBounds.max.y - m_ContentTopPadding + totalSize)
                 {
-                    size = await NewItemAtStart();
+                    size = NewItemAtStart();
                     totalSize += size;
                 }
                 if (totalSize > 0)
@@ -173,7 +172,7 @@ namespace UnityEngine.UI
                 ClearTempPool();
             }
 
-            return (changed,viewBounds,contentBounds);
+            return changed;
         }
     }
 }

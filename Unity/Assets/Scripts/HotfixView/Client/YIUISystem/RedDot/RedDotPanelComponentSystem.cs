@@ -105,7 +105,7 @@ namespace ET.Client
 
         private static void RefreshSearchScroll(this RedDotPanelComponent self)
         {
-            self.m_SearchScroll.SetDataRefresh(self.m_CurrentDataList);
+            self.m_SearchScroll.SetDataRefresh(self.m_CurrentDataList).Coroutine();
         }
 
         private static void OnClickChildList(this RedDotPanelComponent self, RedDotData data)
@@ -181,7 +181,7 @@ namespace ET.Client
                 return;
             }
 
-            self.m_StackScroll.SetDataRefresh(self.m_InfoData.StackList);
+            self.m_StackScroll.SetDataRefresh(self.m_InfoData.StackList).Coroutine();
         }
 
         private static void OnInfoChangeCount(this RedDotPanelComponent self, int obj)

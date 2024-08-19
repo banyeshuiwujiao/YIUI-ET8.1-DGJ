@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ET.Server
 {
@@ -18,8 +19,20 @@ namespace ET.Server
         
         public static Player GetByAccount(this PlayerComponent self,  string account)
         {
-            self.dictionary.TryGetValue(account, out EntityRef<Player> player);
+            self.dictionary.TryGetValue(account, out var player);
             return player;
+        }
+
+        public static Dictionary<int, Player> GetByAllAccounts(this PlayerComponent self)
+        {
+            Dictionary<int, Player> playerDic = new Dictionary<int, Player>();
+            int count = 0;
+            foreach(var key in self.dictionary.Values)
+            {
+                playerDic.Add(count, key);
+                count++;
+            }
+            return playerDic;
         }
     }
 }

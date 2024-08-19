@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-using ET;
 
 namespace UnityEngine.UI
 {
-    public interface LoopScrollPrefabAsyncSource
+    public interface LoopScrollPrefabSource
     {
-        ETTask<GameObject> GetObject(int index);
+        GameObject GetObject(int index);
 
         void ReturnObject(Transform trans);
     }

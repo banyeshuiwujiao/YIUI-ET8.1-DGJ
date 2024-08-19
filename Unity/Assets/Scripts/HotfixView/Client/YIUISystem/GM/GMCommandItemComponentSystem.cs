@@ -30,14 +30,14 @@ namespace ET.Client
             self.u_DataName.SetValue(info.GMName);
             self.u_DataDesc.SetValue(info.GMDesc);
             self.u_DataShowParamLoop.SetValue(info.ParamInfoList.Count >= 1);
-            self.GMParamLoop.SetDataRefresh(info.ParamInfoList);
+            self.GMParamLoop.SetDataRefresh(info.ParamInfoList).Coroutine();
             self.WaitRefresh().Coroutine();
         }
 
         private static async ETTask WaitRefresh(this GMCommandItemComponent self)
         {            
             await self.Root().GetComponent<TimerComponent>().WaitAsync(500);
-            self.GMParamLoop.RefreshCells();
+            await self.GMParamLoop.RefreshCells();
         }
         
         private static void GMParamRenderer(this GMCommandItemComponent self, int index, GMParamInfo data, GMParamItemComponent item, bool select)

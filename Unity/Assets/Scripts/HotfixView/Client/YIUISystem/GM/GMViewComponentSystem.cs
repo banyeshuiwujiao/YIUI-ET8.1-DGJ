@@ -40,10 +40,9 @@ namespace ET.Client
         {
             if (self.Opened) return true;
             self.GMTypeLoop.ClearSelect();
-            self.GMTypeLoop.SetDataRefresh(self.GMTypeData, 0);
-            self.GMTypeLoop.RefreshCells();
+            await self.GMTypeLoop.SetDataRefresh(self.GMTypeData, 0);
+            await self.GMTypeLoop.RefreshCells();
             self.Opened = true;
-            await ETTask.CompletedTask;
             return true;
         }
 
@@ -76,11 +75,11 @@ namespace ET.Client
         {
             if (self.CommandComponent.AllCommandInfo.TryGetValue(data, out var commandInfoList))
             {
-                self.GMCommandLoop.SetDataRefresh(commandInfoList);
+                self.GMCommandLoop.SetDataRefresh(commandInfoList).Coroutine();
             }
             else
             {
-                self.GMCommandLoop.SetDataRefresh(new List<GMCommandInfo>());
+                self.GMCommandLoop.SetDataRefresh(new List<GMCommandInfo>()).Coroutine();
             }
         }
 

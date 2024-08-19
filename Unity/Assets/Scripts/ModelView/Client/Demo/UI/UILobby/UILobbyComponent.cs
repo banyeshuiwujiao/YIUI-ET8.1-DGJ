@@ -8,6 +8,15 @@ namespace ET.Client
 	public class UILobbyComponent : Entity, IAwake
 	{
 		public GameObject enterMap;
-		public Text text;
+		public GameObject sendHello;
+        public GameObject callHello;
+
+		public GameObject enterChat;
+		public GameObject sendButton;
+		public InputField inputField;
+		public Text chatText;
+		public GameObject chatPanel;
+
+        public Text text;
 	}
 }

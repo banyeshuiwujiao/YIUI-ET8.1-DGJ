@@ -13,7 +13,7 @@ using Object = UnityEngine.Object;
 
 namespace YIUIFramework
 {
-    public partial class YIUILoopScroll<TData, TItemRenderer>: LoopScrollPrefabAsyncSource, LoopScrollDataSource
+    public partial class YIUILoopScroll<TData, TItemRenderer>: LoopScrollPrefabSource, LoopScrollDataSource
             where TItemRenderer : Entity, IYIUIBind, IYIUIInitialize
     {
         /// <summary>
@@ -25,13 +25,12 @@ namespace YIUIFramework
         /// <param name="select">是否被选中</param>
         public delegate void ListItemRenderer(int index, TData data, TItemRenderer item, bool select);
 
-        private Entity           m_OwnerEntity;
-        private ListItemRenderer m_ItemRenderer;
-        private YIUIBindVo       m_BindVo;
-        private IList<TData>     m_Data;
-
+        private Entity                               m_OwnerEntity;
+        private ListItemRenderer                     m_ItemRenderer;
+        private YIUIBindVo                           m_BindVo;
+        private IList<TData>                         m_Data;
         private LoopScrollRect                       m_Owner;
-        private ObjAsyncCache<TItemRenderer>         m_UIBasePool;
+        private ObjCache<TItemRenderer>              m_UIBasePool;
         private Dictionary<Transform, TItemRenderer> m_ItemTransformDic      = new Dictionary<Transform, TItemRenderer>();
         private Dictionary<Transform, int>           m_ItemTransformIndexDic = new Dictionary<Transform, int>();
 
@@ -46,7 +45,7 @@ namespace YIUIFramework
             m_ItemTransformIndexDic.Clear();
             m_BindVo             = data.Value;
             m_ItemRenderer       = itemRenderer;
-            m_UIBasePool         = new ObjAsyncCache<TItemRenderer>(OnCreateItemRenderer);
+            m_UIBasePool         = new ObjCache<TItemRenderer>(OnCreateItemRenderer);
             m_OwnerEntity        = ownerEneity;
             m_Owner              = owner;
             m_Owner.prefabSource = this;
@@ -97,33 +96,48 @@ namespace YIUIFramework
 
         private void AddItemRendererByDic(Transform tsf, TItemRenderer item)
         {
-            m_ItemTransformDic.TryAdd(tsf, item);
+            if (!m_ItemTransformDic.ContainsKey(tsf))
+            {
+                m_ItemTransformDic.Add(tsf, item);
+            }
         }
 
         private int GetItemIndex(Transform tsf)
         {
-            return m_ItemTransformIndexDic.GetValueOrDefault(tsf, -1);
+            if (m_ItemTransformIndexDic.TryGetValue(tsf, out var value))
+            {
+                return value;
+            }
+
+            return -1;
         }
 
         private void ResetItemIndex(Transform tsf, int index)
         {
-            m_ItemTransformIndexDic[tsf] = index;
+            if (!m_ItemTransformIndexDic.ContainsKey(tsf))
+            {
+                m_ItemTransformIndexDic.Add(tsf, index);
+            }
+            else
+            {
+                m_ItemTransformIndexDic[tsf] = index;
+            }
         }
 
         #endregion
 
         #region LoopScrollRect Interface
 
-        private async ETTask<TItemRenderer> OnCreateItemRenderer()
+        private TItemRenderer OnCreateItemRenderer()
         {
-            var uiBase = await YIUIFactory.InstantiateAsync<TItemRenderer>(m_BindVo, m_OwnerEntity);
+            var uiBase = YIUIFactory.Instantiate<TItemRenderer>(m_BindVo, m_OwnerEntity);
             AddItemRendererByDic(uiBase.GetParent<YIUIComponent>().OwnerRectTransform, uiBase);
             return AddOnClickEvent(uiBase);
         }
 
-        public async ETTask<GameObject> GetObject(int index)
+        public GameObject GetObject(int index)
         {
-            var uiBase = await m_UIBasePool.Get();
+            var uiBase = m_UIBasePool.Get();
             return uiBase.GetParent<YIUIComponent>().OwnerGameObject;
         }
 

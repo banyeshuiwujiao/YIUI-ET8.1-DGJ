@@ -4,6 +4,8 @@ using UnityEngine.EventSystems;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ET;
+using ET.Client;
 
 namespace UnityEngine.UI
 {
@@ -16,7 +18,15 @@ namespace UnityEngine.UI
     /// <remarks>
     /// LoopScrollRect will not do any clipping on its own. Combined with a Mask component, it can be turned into a loop scroll view.
     /// </remarks>
-    public abstract class LoopScrollRectBase : UIBehaviour, IInitializePotentialDragHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IScrollHandler, ICanvasElement, ILayoutElement, ILayoutGroup
+    public abstract class LoopScrollRectBase : UIBehaviour, 
+            IInitializePotentialDragHandler, 
+            IBeginDragHandler, 
+            IEndDragHandler, 
+            IDragHandler, 
+            IScrollHandler, 
+            ICanvasElement, 
+            ILayoutElement, 
+            ILayoutGroup
     {
         //==========LoopScrollRect==========
         /// <summary>
@@ -24,7 +34,7 @@ namespace UnityEngine.UI
         /// </summary>
         [HideInInspector]
         [NonSerialized]
-        public LoopScrollPrefabSource prefabSource = null;
+        public LoopScrollPrefabAsyncSource prefabSource = null;
 
         /// <summary>
         /// The scroll's total count for items with id in [0, totalCount]. Negative value like -1 means infinite items.
@@ -177,7 +187,11 @@ namespace UnityEngine.UI
             }
         }
 
-        protected virtual bool UpdateItems(ref Bounds viewBounds, ref Bounds contentBounds) { return false; }
+        protected virtual async ETTask<(bool,Bounds,Bounds)> UpdateItems(Bounds viewBounds, Bounds contentBounds)
+        {
+            await ETTask.CompletedTask;
+            return (false, viewBounds, contentBounds);
+        }
         //==========LoopScrollRect==========
 
         /// <summary>
@@ -744,7 +758,7 @@ namespace UnityEngine.UI
             return itemTypeEnd - idx - 1;
         }
         
-        public void ScrollToCell(int index, float speed)
+        public async ETTask ScrollToCell(int index, float speed)
         {
             if (totalCount >= 0 && (index < 0 || index >= totalCount))
             {
@@ -754,13 +768,13 @@ namespace UnityEngine.UI
             StopAllCoroutines();
             if (speed <= 0)
             {
-                RefillCells(index);
+                await RefillCells(index);
                 return;
             }
-            StartCoroutine(ScrollToCellCoroutine(index, speed));
+            await ScrollToCellCoroutine(index, speed);
         }
         
-        public void ScrollToCellWithinTime(int index, float time)
+        public async ETTask ScrollToCellWithinTime(int index, float time)
         {
             if (totalCount >= 0 && (index < 0 || index >= totalCount))
             {
@@ -770,7 +784,7 @@ namespace UnityEngine.UI
             StopAllCoroutines();
             if (time <= 0)
             {
-                RefillCells(index);
+                await RefillCells(index);
                 return;
             }
             float dist = 0;
@@ -798,15 +812,18 @@ namespace UnityEngine.UI
                     dist -= offset;
                 }
             }
-            StartCoroutine(ScrollToCellCoroutine(index, Mathf.Abs(dist) / time));
+            
+            await ScrollToCellCoroutine(index, Mathf.Abs(dist) / time);
+
         }
 
-        IEnumerator ScrollToCellCoroutine(int index, float speed)
+        private async ETTask ScrollToCellCoroutine(int index, float speed)
         {
             bool needMoving = true;
             while (needMoving)
             {
-                yield return null;
+                await YIUIMgrComponent.Inst.Root().GetComponent<TimerComponent>().WaitFrameAsync();
+
                 if (!m_Dragging)
                 {
                     float move = 0;
@@ -868,20 +885,20 @@ namespace UnityEngine.UI
                         m_Content.anchoredPosition += offset;
                         m_PrevPosition += offset;
                         m_ContentStartPosition += offset;
-                        UpdateBounds(true);
+                        await UpdateBounds(true);
                     }
                 }
             }
             StopMovement();
             UpdatePrevData();
         }
-
+ 
         protected abstract void ProvideData(Transform transform, int index);
 
         /// <summary>
         /// Refresh item data
         /// </summary>
-        public void RefreshCells()
+        public async ETTask RefreshCells()
         {
             if (Application.isPlaying && this.isActiveAndEnabled)
             {
@@ -900,7 +917,7 @@ namespace UnityEngine.UI
                         i--;
                     }
                 }
-                UpdateBounds(true);
+                await UpdateBounds(true);
                 UpdateScrollbars(Vector2.zero);
             }
         }
@@ -908,7 +925,7 @@ namespace UnityEngine.UI
         /// <summary>
         /// Refill cells from endItem at the end while clear existing ones
         /// </summary>
-        public void RefillCellsFromEnd(int endItem = 0, bool alignStart = false)
+        public async ETTask RefillCellsFromEnd(int endItem = 0, bool alignStart = false)
         {
             if (!Application.isPlaying)
                 return;
@@ -929,7 +946,7 @@ namespace UnityEngine.UI
             if (itemTypeStart < itemTypeEnd)
             {
                 itemTypeEnd = itemTypeStart;
-                float size = reverseDirection ? NewItemAtStart(!first) : NewItemAtEnd(!first);
+                float size = reverseDirection ? await NewItemAtStart(!first) : await NewItemAtEnd(!first);
                 if (size >= 0)
                 {
                     first = false;
@@ -939,7 +956,7 @@ namespace UnityEngine.UI
 
             while (sizeToFill > sizeFilled)
             {
-                float size = reverseDirection ? NewItemAtEnd(!first) : NewItemAtStart(!first);
+                float size = reverseDirection ? await NewItemAtEnd(!first) : await NewItemAtStart(!first);
                 if (size < 0)
                     break;
                 first = false;
@@ -949,7 +966,7 @@ namespace UnityEngine.UI
             // refill from start in case not full yet
             while (sizeToFill > sizeFilled)
             {
-                float size = reverseDirection ? NewItemAtStart(!first) : NewItemAtEnd(!first);
+                float size = reverseDirection ? await NewItemAtStart(!first) : await NewItemAtEnd(!first);
                 if (size < 0)
                     break;
                 first = false;
@@ -971,7 +988,7 @@ namespace UnityEngine.UI
             // force build bounds here so scrollbar can access newest bounds
             LayoutRebuilder.ForceRebuildLayoutImmediate(m_Content);
             Canvas.ForceUpdateCanvases();
-            UpdateBounds(false);
+            UpdateBounds();
             UpdateScrollbars(Vector2.zero);
             StopMovement();
             UpdatePrevData();
@@ -982,7 +999,7 @@ namespace UnityEngine.UI
         /// </summary>
         /// <param name="startItem">The first item to fill</param>
         /// <param name="contentOffset">The first item's offset compared to viewBound</param>
-        public void RefillCells(int startItem = 0, float contentOffset = 0)
+        public async ETTask RefillCells(int startItem = 0, float contentOffset = 0)
         {
             if (!Application.isPlaying)
                 return;
@@ -1006,7 +1023,7 @@ namespace UnityEngine.UI
             bool first = true;
             while (sizeToFill > sizeFilled)
             {
-                float size = reverseDirection ? NewItemAtStart(!first) : NewItemAtEnd(!first);
+                float size = reverseDirection ? await NewItemAtStart(!first) : await NewItemAtEnd(!first);
                 if (size < 0)
                     break;
                 first = false;
@@ -1017,7 +1034,7 @@ namespace UnityEngine.UI
             // refill from start in case not full yet
             while (sizeToFill > sizeFilled)
             {
-                float size = reverseDirection ? NewItemAtEnd(!first) : NewItemAtStart(!first);
+                float size = reverseDirection ? await NewItemAtEnd(!first) : await NewItemAtStart(!first);
                 if (size < 0)
                     break;
                 first = false;
@@ -1036,13 +1053,13 @@ namespace UnityEngine.UI
             // force build bounds here so scrollbar can access newest bounds
             LayoutRebuilder.ForceRebuildLayoutImmediate(m_Content);
             Canvas.ForceUpdateCanvases();
-            UpdateBounds(false);
+            UpdateBounds();
             UpdateScrollbars(Vector2.zero);
             StopMovement();
             UpdatePrevData();
         }
 
-        protected float NewItemAtStart(bool includeSpacing = true)
+        protected async ETTask<float> NewItemAtStart(bool includeSpacing = true)
         {
             if (totalCount >= 0 && itemTypeStart - contentConstraintCount < 0)
             {
@@ -1052,7 +1069,7 @@ namespace UnityEngine.UI
             for (int i = 0; i < contentConstraintCount; i++)
             {
                 itemTypeStart--;
-                RectTransform newItem = GetFromTempPool(itemTypeStart);
+                RectTransform newItem = await GetFromTempPool(itemTypeStart);
                 newItem.SetSiblingIndex(deletedItemTypeStart);
                 size = Mathf.Max(GetSize(newItem, includeSpacing), size);
             }
@@ -1118,7 +1135,7 @@ namespace UnityEngine.UI
         }
 
 
-        protected float NewItemAtEnd(bool includeSpacing = true)
+        protected async ETTask<float> NewItemAtEnd(bool includeSpacing = true)
         {
             if (totalCount >= 0 && itemTypeEnd >= totalCount)
             {
@@ -1130,7 +1147,7 @@ namespace UnityEngine.UI
             int count = contentConstraintCount - (availableChilds % contentConstraintCount);
             for (int i = 0; i < count; i++)
             {
-                RectTransform newItem = GetFromTempPool(itemTypeEnd);
+                RectTransform newItem = await GetFromTempPool(itemTypeEnd);
                 newItem.SetSiblingIndex(m_Content.childCount - deletedItemTypeEnd - 1);
                 size = Mathf.Max(GetSize(newItem, includeSpacing), size);
                 itemTypeEnd++;
@@ -1200,7 +1217,7 @@ namespace UnityEngine.UI
 
         protected int deletedItemTypeStart = 0;
         protected int deletedItemTypeEnd = 0;
-        protected abstract RectTransform GetFromTempPool(int itemIdx);
+        protected abstract ETTask<RectTransform> GetFromTempPool(int itemIdx);
         protected abstract void ReturnToTempPool(bool fromStart, int count = 1);
         protected abstract void ClearTempPool();
 
@@ -1209,13 +1226,13 @@ namespace UnityEngine.UI
         [Obsolete("SrollToCell(int, float) has been renamed to ScrollToCell(int, float).")]
         public void SrollToCell(int index, float speed)
         {
-            ScrollToCell(index, speed);
+            ScrollToCell(index, speed).Coroutine();
         }
         
         [Obsolete("SrollToCellWithinTime(int, float) has been renamed to ScrollToCellWithinTime(int, float).")]
         public void SrollToCellWithinTime(int index, float time)
         {
-            ScrollToCellWithinTime(index, time);
+            ScrollToCellWithinTime(index, time).Coroutine();
         }
         #endregion
         //==========LoopScrollRect==========
@@ -1236,7 +1253,7 @@ namespace UnityEngine.UI
                 m_HasRebuiltLayout = true;
             }
         }
-
+        
         public virtual void LayoutComplete()
         {}
 
@@ -1370,7 +1387,7 @@ namespace UnityEngine.UI
             SetContentAnchoredPosition(position);
             UpdateBounds();
         }
-
+        
         public virtual void OnInitializePotentialDrag(PointerEventData eventData)
         {
             if (eventData.button != PointerEventData.InputButton.Left)
@@ -1475,7 +1492,7 @@ namespace UnityEngine.UI
             if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(viewRect, eventData.position, eventData.pressEventCamera, out localCursor))
                 return;
 
-            UpdateBounds();
+            UpdateBounds();;
 
             var pointerDelta = localCursor - m_PointerStartLocalCursor;
             Vector2 position = m_ContentStartPosition + pointerDelta;
@@ -1508,7 +1525,7 @@ namespace UnityEngine.UI
             if ((position - m_Content.anchoredPosition).sqrMagnitude > 0.001f)
             {
                 m_Content.anchoredPosition = position;
-                UpdateBounds(true);
+                UpdateBounds(true).Coroutine();
             }
             //==========LoopScrollRect==========
         }
@@ -1519,7 +1536,7 @@ namespace UnityEngine.UI
                 return;
 
             EnsureLayoutHasRebuilt();
-            UpdateBounds();
+            UpdateBounds();;
             float deltaTime = Time.unscaledDeltaTime;
             Vector2 offset = CalculateOffset(Vector2.zero);
             if (!m_Dragging && (offset != Vector2.zero || m_Velocity != Vector2.zero))
@@ -1839,7 +1856,7 @@ namespace UnityEngine.UI
                 anchoredPosition[axis] = newAnchoredPosition;
                 m_Content.anchoredPosition = anchoredPosition;
                 m_Velocity[axis] = 0;
-                UpdateBounds(true);	//==========LoopScrollRect==========
+                UpdateBounds(true).Coroutine();	//==========LoopScrollRect==========
             }
         }
 
@@ -2033,7 +2050,7 @@ namespace UnityEngine.UI
         /// <summary>
         /// Calculate the bounds the ScrollRect should be using.
         /// </summary>
-        protected void UpdateBounds(bool updateItems = false) //==========LoopScrollRect==========
+        private async ETTask UpdateBounds(bool updateItems) //==========LoopScrollRect==========
         {
             m_ViewBounds = new Bounds(viewRect.rect.center, viewRect.rect.size);
             m_ContentBounds = GetBounds();
@@ -2043,11 +2060,73 @@ namespace UnityEngine.UI
 
             // ============LoopScrollRect============
             // Don't do this in Rebuild. Make use of ContentBounds before Adjust here.
-            if (Application.isPlaying && updateItems && UpdateItems(ref m_ViewBounds, ref m_ContentBounds))
+            if (Application.isPlaying && updateItems)
             {
-                EnsureLayoutHasRebuilt();
-                m_ContentBounds = GetBounds();
+                var (result, viewBounds, contentBounds) = await UpdateItems(m_ViewBounds, m_ContentBounds);
+                m_ViewBounds                            = viewBounds;
+                m_ContentBounds                         = contentBounds;
+                if (result)
+                {
+                    EnsureLayoutHasRebuilt();
+                    m_ContentBounds = GetBounds(); 
+                }
             }
+            // ============LoopScrollRect============
+            
+            Vector3 contentSize = m_ContentBounds.size;
+            Vector3 contentPos = m_ContentBounds.center;
+            var contentPivot = m_Content.pivot;
+            AdjustBounds(ref m_ViewBounds, ref contentPivot, ref contentSize, ref contentPos);
+            m_ContentBounds.size = contentSize;
+            m_ContentBounds.center = contentPos;
+
+            if (movementType == MovementType.Clamped)
+            {
+                // Adjust content so that content bounds bottom (right side) is never higher (to the left) than the view bounds bottom (right side).
+                // top (left side) is never lower (to the right) than the view bounds top (left side).
+                // All this can happen if content has shrunk.
+                // This works because content size is at least as big as view size (because of the call to InternalUpdateBounds above).
+                Vector2 delta = Vector2.zero;
+                if (m_ViewBounds.max.x > m_ContentBounds.max.x)
+                {
+                    delta.x = Math.Min(m_ViewBounds.min.x - m_ContentBounds.min.x, m_ViewBounds.max.x - m_ContentBounds.max.x);
+                }
+                else if (m_ViewBounds.min.x < m_ContentBounds.min.x)
+                {
+                    delta.x = Math.Max(m_ViewBounds.min.x - m_ContentBounds.min.x, m_ViewBounds.max.x - m_ContentBounds.max.x);
+                }
+
+                if (m_ViewBounds.min.y < m_ContentBounds.min.y)
+                {
+                    delta.y = Math.Max(m_ViewBounds.min.y - m_ContentBounds.min.y, m_ViewBounds.max.y - m_ContentBounds.max.y);
+                }
+                else if (m_ViewBounds.max.y > m_ContentBounds.max.y)
+                {
+                    delta.y = Math.Min(m_ViewBounds.min.y - m_ContentBounds.min.y, m_ViewBounds.max.y - m_ContentBounds.max.y);
+                }
+                if (delta.sqrMagnitude > float.Epsilon)
+                {
+                    contentPos = m_Content.anchoredPosition + delta;
+                    if (!m_Horizontal)
+                        contentPos.x = m_Content.anchoredPosition.x;
+                    if (!m_Vertical)
+                        contentPos.y = m_Content.anchoredPosition.y;
+                    AdjustBounds(ref m_ViewBounds, ref contentPivot, ref contentSize, ref contentPos);
+                }
+            }
+        }
+
+        private void UpdateBounds() //==========LoopScrollRect==========
+        {
+            m_ViewBounds = new Bounds(viewRect.rect.center, viewRect.rect.size);
+            m_ContentBounds = GetBounds();
+
+            if (m_Content == null)
+                return;
+
+            // ============LoopScrollRect============
+            // Don't do this in Rebuild. Make use of ContentBounds before Adjust here.
+
             // ============LoopScrollRect============
             
             Vector3 contentSize = m_ContentBounds.size;

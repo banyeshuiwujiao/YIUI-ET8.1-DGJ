@@ -27,7 +27,10 @@
     public struct EnterMapFinish
     {
     }
-
+    //添加Chat
+    public struct EnterChatFinish
+    {
+    }
     public struct AfterUnitCreate
     {
         public Unit Unit;
