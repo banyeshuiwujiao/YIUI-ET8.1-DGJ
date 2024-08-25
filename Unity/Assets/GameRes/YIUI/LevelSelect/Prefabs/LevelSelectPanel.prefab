@@ -5328,8 +5328,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u6DF1\u6E0A"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a2157e1f9c4c4d38841fbb92558f587, type: 2}
-  m_sharedMaterial: {fileID: -6360588970910393389, guid: 9a2157e1f9c4c4d38841fbb92558f587,
+  m_fontAsset: {fileID: 11400000, guid: 8563d218c4a73f64e8c48c5359b83e3a, type: 2}
+  m_sharedMaterial: {fileID: -147333974824611114, guid: 8563d218c4a73f64e8c48c5359b83e3a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

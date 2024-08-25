@@ -77,8 +77,8 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
-      - 
+      - "\u70B9\u51FB\u767B\u9646"
+      - Tap to Start
       Flags: 0000
       Languages_Touch: []
     - Term: "\u5929\u8D4B"
@@ -105,15 +105,23 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: "\u624B\u52A8\u542F\u52A8ComfyUI"
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u624B\u52A8\u542F\u52A8ComfyUI"
+      - ManuaComfyUIStart
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
     mLanguages:
-    - Name: English
-      Code: en
-      Flags: 0
     - Name: ChineseSimplified
       Code: zh
+      Flags: 0
+    - Name: English
+      Code: en
       Flags: 0
     IgnoreDeviceLanguage: 1
     _AllowUnloadingLanguages: 2

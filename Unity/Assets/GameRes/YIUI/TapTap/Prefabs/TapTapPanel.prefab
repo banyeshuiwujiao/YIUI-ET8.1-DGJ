@@ -5499,8 +5499,8 @@ MonoBehaviour:
     Seek the eternal truths through
     the ages'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a2157e1f9c4c4d38841fbb92558f587, type: 2}
-  m_sharedMaterial: {fileID: -6360588970910393389, guid: 9a2157e1f9c4c4d38841fbb92558f587,
+  m_fontAsset: {fileID: 11400000, guid: 8563d218c4a73f64e8c48c5359b83e3a, type: 2}
+  m_sharedMaterial: {fileID: -147333974824611114, guid: 8563d218c4a73f64e8c48c5359b83e3a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10816,8 +10816,8 @@ MonoBehaviour:
     a wisp of the </color> <size=+20><color=\"red\">ethereal Qi</color></size> \n<space=16em><color=#CD6E00>
     from the earth"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a2157e1f9c4c4d38841fbb92558f587, type: 2}
-  m_sharedMaterial: {fileID: -6360588970910393389, guid: 9a2157e1f9c4c4d38841fbb92558f587,
+  m_fontAsset: {fileID: 11400000, guid: 8563d218c4a73f64e8c48c5359b83e3a, type: 2}
+  m_sharedMaterial: {fileID: -147333974824611114, guid: 8563d218c4a73f64e8c48c5359b83e3a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11591,10 +11591,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tap to Start
+  m_text: "\u70B9\u51FB\u767B\u9646"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a2157e1f9c4c4d38841fbb92558f587, type: 2}
-  m_sharedMaterial: {fileID: -6360588970910393389, guid: 9a2157e1f9c4c4d38841fbb92558f587,
+  m_fontAsset: {fileID: 11400000, guid: 8563d218c4a73f64e8c48c5359b83e3a, type: 2}
+  m_sharedMaterial: {fileID: -147333974824611114, guid: 8563d218c4a73f64e8c48c5359b83e3a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11619,7 +11619,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.05
+  m_fontSize: 48.15
   m_fontSizeBase: 49
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -17495,7 +17495,7 @@ GameObject:
   - component: {fileID: 378197511590474092}
   - component: {fileID: 3945035968827360118}
   - component: {fileID: 2655596452773774593}
-  - component: {fileID: 2918809646533579837}
+  - component: {fileID: 3726819938030579989}
   m_Layer: 5
   m_Name: Text_TapToStart
   m_TagString: Untagged
@@ -17550,10 +17550,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ComfyServer
+  m_text: "\u624B\u52A8\u542F\u52A8ComfyUI"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a2157e1f9c4c4d38841fbb92558f587, type: 2}
-  m_sharedMaterial: {fileID: -6360588970910393389, guid: 9a2157e1f9c4c4d38841fbb92558f587,
+  m_fontAsset: {fileID: 11400000, guid: 8563d218c4a73f64e8c48c5359b83e3a, type: 2}
+  m_sharedMaterial: {fileID: -147333974824611114, guid: 8563d218c4a73f64e8c48c5359b83e3a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -17620,7 +17620,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2918809646533579837
+--- !u!114 &3726819938030579989
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17632,7 +17632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344445a89b4f74a0e9a0a766903df87e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTerm: Start
+  mTerm: "\u624B\u52A8\u542F\u52A8ComfyUI"
   mTermSecondary: 
   PrimaryTermModifier: 0
   SecondaryTermModifier: 0

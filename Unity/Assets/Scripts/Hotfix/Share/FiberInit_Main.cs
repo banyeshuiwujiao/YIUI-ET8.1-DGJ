@@ -6,10 +6,13 @@
         public override async ETTask Handle(FiberInit fiberInit)
         {
             Scene root = fiberInit.Fiber.Root;
-           
+            //联机模式
             await EventSystem.Instance.PublishAsync(root, new EntryEvent1());
             await EventSystem.Instance.PublishAsync(root, new EntryEvent2());
             await EventSystem.Instance.PublishAsync(root, new EntryEvent3());
+
+            //单机模式
+            //await EventSystem.Instance.PublishAsync(root, new EntryOneQiEvent());
         }
     }
 }

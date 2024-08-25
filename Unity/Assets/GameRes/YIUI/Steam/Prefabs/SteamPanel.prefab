@@ -5384,8 +5384,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tap to Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a2157e1f9c4c4d38841fbb92558f587, type: 2}
-  m_sharedMaterial: {fileID: -6360588970910393389, guid: 9a2157e1f9c4c4d38841fbb92558f587,
+  m_fontAsset: {fileID: 11400000, guid: 8563d218c4a73f64e8c48c5359b83e3a, type: 2}
+  m_sharedMaterial: {fileID: -147333974824611114, guid: 8563d218c4a73f64e8c48c5359b83e3a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5410,7 +5410,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.05
+  m_fontSize: 32.55
   m_fontSizeBase: 49
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5962,8 +5962,8 @@ MonoBehaviour:
     a wisp of the </color> <size=+20><color=\"red\">ethereal Qi</color></size> \n<space=16em><color=#CD6E00>
     from the earth"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a2157e1f9c4c4d38841fbb92558f587, type: 2}
-  m_sharedMaterial: {fileID: -6360588970910393389, guid: 9a2157e1f9c4c4d38841fbb92558f587,
+  m_fontAsset: {fileID: 11400000, guid: 8563d218c4a73f64e8c48c5359b83e3a, type: 2}
+  m_sharedMaterial: {fileID: -147333974824611114, guid: 8563d218c4a73f64e8c48c5359b83e3a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6160,9 +6160,7 @@ MonoBehaviour:
   AddSpacesToJoinedLanguages: 0
   AllowLocalizedParameters: 1
   AllowParameters: 1
-  TranslatedObjects:
-  - {fileID: 5684050024720640402}
-  - {fileID: 5924006763120323592}
+  TranslatedObjects: []
   LocalizeEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -11358,8 +11356,8 @@ MonoBehaviour:
     Seek the eternal truths through
     the ages'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a2157e1f9c4c4d38841fbb92558f587, type: 2}
-  m_sharedMaterial: {fileID: -6360588970910393389, guid: 9a2157e1f9c4c4d38841fbb92558f587,
+  m_fontAsset: {fileID: 11400000, guid: 8563d218c4a73f64e8c48c5359b83e3a, type: 2}
+  m_sharedMaterial: {fileID: -147333974824611114, guid: 8563d218c4a73f64e8c48c5359b83e3a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

@@ -34,7 +34,9 @@ namespace ET
 		DemoView = 1L << 34,
 		NetClient = 1L << 35,
 
-		All = long.MaxValue,
+        OneQi = 1L << 36,
+
+        All = long.MaxValue,
 	}
 
 	public static class SceneTypeHelper

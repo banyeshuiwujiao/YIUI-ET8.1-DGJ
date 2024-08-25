@@ -16,6 +16,7 @@ namespace ET
         
         Demo,
         LockStep,
+        OneQi,
     }
     
     public class Options: Singleton<Options>

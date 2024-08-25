@@ -1,8 +1,18 @@
-﻿using YIUIFramework;
+﻿using System;
+using UnityEngine;
+using YIUIFramework;
+using System.Collections.Generic;
 
 namespace ET.Client
 {
-
+    /// <summary>
+    /// 由YIUI工具自动创建 请勿修改
+    /// 当前Panel所有可用view枚举
+    /// </summary>
+    public enum ELobbyPanelViewEnum
+    {
+        ChatView = 1,
+    }
     /// <summary>
     /// 由YIUI工具自动创建 请勿修改
     /// </summary>
@@ -18,8 +28,10 @@ namespace ET.Client
         public YIUIWindowComponent UIWindow => u_UIWindow;
         public EntityRef<YIUIPanelComponent> u_UIPanel;
         public YIUIPanelComponent UIPanel => u_UIPanel;
-        public UITaskEventP0 u_EventEnter;
-        public UITaskEventHandleP0 u_EventEnterHandle;
+        public UnityEngine.UI.Button u_ComEnterChatButton;
+        public UnityEngine.UI.Button u_ComSendHelloButton;
+        public UnityEngine.UI.Button u_ComEnterMapButton;
+        public UnityEngine.UI.Button u_ComCallHelloButton;
 
     }
 }

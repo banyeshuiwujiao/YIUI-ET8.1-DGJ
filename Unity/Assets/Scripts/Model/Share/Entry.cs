@@ -1,21 +1,9 @@
-﻿using MemoryPack;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Serializers;
-
-namespace ET
+﻿namespace ET
 {
-    public struct EntryEvent1
-    {
-    }   
-    
-    public struct EntryEvent2
-    {
-    } 
-    
-    public struct EntryEvent3
-    {
-    }
-    
+    public struct EntryEvent1 { }
+    public struct EntryEvent2 { }
+    public struct EntryEvent3 { }
+    public struct EntryOneQiEvent { }
     public static class Entry
     {
         public static void Init()
