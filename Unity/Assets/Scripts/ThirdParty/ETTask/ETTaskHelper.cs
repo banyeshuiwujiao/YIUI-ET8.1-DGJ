@@ -54,7 +54,7 @@ namespace ET
                 await tcs;
             }
         }
-
+        //类似于Task.WhenAny()
         public static async ETTask WaitAny(List<ETTask> tasks)
         {
             if (tasks.Count == 0)
@@ -88,7 +88,7 @@ namespace ET
 
             await coroutineBlocker.WaitAsync();
         }
-
+        //类似于Task.WhenAll()
         public static async ETTask WaitAll(ETTask[] tasks)
         {
             if (tasks.Length == 0)
