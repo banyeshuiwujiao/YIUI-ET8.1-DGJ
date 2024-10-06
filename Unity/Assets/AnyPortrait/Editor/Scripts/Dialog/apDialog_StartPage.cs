@@ -1,6 +1,6 @@
 ﻿/*
 *	Copyright (c) 2017-2023. RainyRizzle Inc. All rights reserved
-*	Contact to : https://www.rainyrizzle.com/ , contactrainyrizzle@gmail.com
+*	Contact to : https://UWR.rainyrizzle.com/ , contactrainyrizzle@gmail.com
 *
 *	This file is part of [AnyPortrait].
 *
@@ -265,15 +265,15 @@ namespace AnyPortrait
 				//Video Tutorial : 동영상 튜토리얼
 				if(_editor._language == apEditor.LANGUAGE.Korean)//한국어
 				{
-					Application.OpenURL("https://www.rainyrizzle.com/ap-videotutorial-kor");
+					Application.OpenURL("https://UWR.rainyrizzle.com/ap-videotutorial-kor");
 				}
 				else if(_editor._language == apEditor.LANGUAGE.Japanese)//일본어
 				{
-					Application.OpenURL("https://www.rainyrizzle.com/ap-videotutorial-jp");
+					Application.OpenURL("https://UWR.rainyrizzle.com/ap-videotutorial-jp");
 				}
 				else//영어 + 기타
 				{
-					Application.OpenURL("https://www.rainyrizzle.com/ap-videotutorial-eng");
+					Application.OpenURL("https://UWR.rainyrizzle.com/ap-videotutorial-eng");
 				}
 			}
 			EditorGUILayout.EndHorizontal();
@@ -298,7 +298,7 @@ namespace AnyPortrait
 			if(GUILayout.Button(_guiContent_Forum, GUILayout.Width(width_Half), GUILayout.Height(height_4Btn)))
 			{
 				//Forum : 포럼
-				Application.OpenURL("https://www.rainyrizzle.com/ap-forum");
+				Application.OpenURL("https://UWR.rainyrizzle.com/ap-forum");
 			}
 			EditorGUILayout.EndHorizontal();
 
@@ -313,7 +313,7 @@ namespace AnyPortrait
 				if (GUILayout.Button(_editor.GetText(TEXT.DLG_StartPage_Hompage), GUILayout.Height(25)))//"Check Limitations"
 				{
 					//홈페이지로 갑시다.
-					Application.OpenURL("https://www.rainyrizzle.com");
+					Application.OpenURL("https://UWR.rainyrizzle.com");
 				}
 			}
 			else
@@ -324,11 +324,11 @@ namespace AnyPortrait
 					//홈페이지로 갑시다.
 					if(_editor._language == apEditor.LANGUAGE.Korean)
 					{
-						Application.OpenURL("https://www.rainyrizzle.com/ap-demodownload-kor");
+						Application.OpenURL("https://UWR.rainyrizzle.com/ap-demodownload-kor");
 					}
 					else
 					{
-						Application.OpenURL("https://www.rainyrizzle.com/ap-demodownload-eng");
+						Application.OpenURL("https://UWR.rainyrizzle.com/ap-demodownload-eng");
 					}
 					
 					isClose = true;

@@ -5,7 +5,14 @@ using System.Collections.Generic;
 
 namespace ET.Client
 {
-
+    /// <summary>
+    /// 由YIUI工具自动创建 请勿修改
+    /// 当前Panel所有可用view枚举
+    /// </summary>
+    public enum ESteamPanelViewEnum
+    {
+        ComfyUIView = 1,
+    }
     /// <summary>
     /// 由YIUI工具自动创建 请勿修改
     /// </summary>
@@ -21,7 +28,10 @@ namespace ET.Client
         public YIUIWindowComponent UIWindow => u_UIWindow;
         public EntityRef<YIUIPanelComponent> u_UIPanel;
         public YIUIPanelComponent UIPanel => u_UIPanel;
+        public UnityEngine.UI.Button u_ComButton_ComfyUIButton;
+        public UnityEngine.RectTransform u_ComGreenRectTransform;
         public UnityEngine.UI.Button u_ComButton_StartButton;
+        public TMPro.TextMeshProUGUI u_ComDescriptionTextMeshProUGUI;
 
     }
 }

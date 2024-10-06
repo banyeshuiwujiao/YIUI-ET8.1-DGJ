@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using DG.Tweening;
+using PrimeTween;
 using UnityEngine.UI;
 
 namespace YIUIFramework
@@ -47,7 +47,7 @@ namespace YIUIFramework
 
         private void OnDestroy()
         {
-            targetTsf.DOKill();
+            Tween.StopAll(onTarget: targetTsf);
         }
 
         //按下
@@ -57,20 +57,20 @@ namespace YIUIFramework
             {
                 if (m_button.enabled && m_button.interactable)
                 {
-                    targetTsf.DOScale(targetScale, scaleTime).SetEase(ease);
+                    Tween.Scale(targetTsf, targetScale, scaleTime, ease:ease);
                 }
             }
             else
             {
-                targetTsf.DOScale(targetScale, scaleTime).SetEase(ease);
+                Tween.Scale(targetTsf, targetScale, scaleTime, ease: ease);
             }
         }
 
         //抬起
         public void OnPointerUp(PointerEventData eventData)
         {
-            targetTsf.DOKill();
-            targetTsf.DOScale(atScale, popTime).SetEase(ease); //回到本来大小
+            Tween.StopAll(onTarget: targetTsf);
+            Tween.Scale(targetTsf, atScale, popTime, ease: ease); //回到本来大小
         }
 
         #if UNITY_EDITOR

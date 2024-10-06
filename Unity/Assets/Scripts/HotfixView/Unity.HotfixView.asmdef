@@ -12,7 +12,9 @@
         "Unity.ModelView",
         "YooAsset",
         "Unity.TextMeshPro",
-        "YIUIFramework"
+        "YIUIFramework",
+        "SimpleFileBrowser.Runtime",
+        "PrimeTween.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

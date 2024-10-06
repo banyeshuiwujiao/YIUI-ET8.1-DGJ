@@ -7,7 +7,7 @@ namespace ET.Client
     {
         protected override async ETTask Run(Scene root, AppStartInitFinish args)
         {
-#if !PLATFORM_ANDROID
+#if PLATFORM_ANDROID
             TapTapPanelComponent tapTapPanelComponent = await YIUIMgrComponent.Inst.Root.OpenPanelAsync<TapTapPanelComponent>();
             ComfyComponent comfyComponent = root.AddComponent<ComfyComponent>();
             tapTapPanelComponent.GetManualComfyStart().onClick.AddListener(async () =>
@@ -48,7 +48,8 @@ namespace ET.Client
                 }
             });
 #else
-            await YIUIMgrComponent.Inst.Root.OpenPanelAsync<SteamPanelComponent>();
+            SteamPanelComponent steamPanelComponent = await YIUIMgrComponent.Inst.Root.OpenPanelAsync<SteamPanelComponent>();
+            //root.AddComponent<ConnectComfyUIComponent>();
 #endif
         }
 

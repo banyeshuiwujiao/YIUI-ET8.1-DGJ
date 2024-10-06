@@ -1,6 +1,6 @@
 ﻿/*
 *	Copyright (c) 2017-2023. RainyRizzle Inc. All rights reserved
-*	Contact to : https://www.rainyrizzle.com/ , contactrainyrizzle@gmail.com
+*	Contact to : https://UWR.rainyrizzle.com/ , contactrainyrizzle@gmail.com
 *
 *	This file is part of [AnyPortrait].
 *
@@ -258,7 +258,7 @@ namespace AnyPortrait
 		[MenuItem("Window/AnyPortrait/Homepage", false, 61)]
 		public static void OpenHomepage()
 		{
-			Application.OpenURL("https://www.rainyrizzle.com/");
+			Application.OpenURL("https://UWR.rainyrizzle.com/");
 		}
 
 		[MenuItem("Window/AnyPortrait/Getting Started", false, 62)]
@@ -270,17 +270,17 @@ namespace AnyPortrait
 
 			if(language == apEditor.LANGUAGE.Korean)
 			{
-				//url = "https://www.rainyrizzle.com/ap-gettingstarted-kor";
+				//url = "https://UWR.rainyrizzle.com/ap-gettingstarted-kor";
 				url = "https://rainyrizzle.github.io/kr/GettingStarted.html";//주소 변경
 			}
 			else if(language == apEditor.LANGUAGE.Japanese)
 			{
-				//url = "https://www.rainyrizzle.com/ap-gettingstarted-jp";
+				//url = "https://UWR.rainyrizzle.com/ap-gettingstarted-jp";
 				url = "https://rainyrizzle.github.io/jp/GettingStarted.html";//주소 변경
 			}
 			else
 			{
-				//url = "https://www.rainyrizzle.com/ap-gettingstarted-eng";
+				//url = "https://UWR.rainyrizzle.com/ap-gettingstarted-eng";
 				url = "https://rainyrizzle.github.io/en/GettingStarted.html";//주소 변경
 			}
 			Application.OpenURL(url);
@@ -296,17 +296,17 @@ namespace AnyPortrait
 
 			if(language == apEditor.LANGUAGE.Korean)
 			{
-				//url = "https://www.rainyrizzle.com/ap-advanced-kor";
+				//url = "https://UWR.rainyrizzle.com/ap-advanced-kor";
 				url = "https://rainyrizzle.github.io/kr/AdManual.html";//주소 변경
 			}
 			else if(language == apEditor.LANGUAGE.Japanese)
 			{
-				//url = "https://www.rainyrizzle.com/ap-advanced-jp";
+				//url = "https://UWR.rainyrizzle.com/ap-advanced-jp";
 				url = "https://rainyrizzle.github.io/jp/AdManual.html";//주소 변경
 			}
 			else
 			{
-				//url = "https://www.rainyrizzle.com/ap-advanced-eng";
+				//url = "https://UWR.rainyrizzle.com/ap-advanced-eng";
 				url = "https://rainyrizzle.github.io/en/AdManual.html";//주소 변경
 			}
 			Application.OpenURL(url);
@@ -321,17 +321,17 @@ namespace AnyPortrait
 
 			if(language == apEditor.LANGUAGE.Korean)
 			{
-				//url = "https://www.rainyrizzle.com/ap-scripting-kor";
+				//url = "https://UWR.rainyrizzle.com/ap-scripting-kor";
 				url = "https://rainyrizzle.github.io/kr/Script.html";//주소 변경
 			}
 			else if(language == apEditor.LANGUAGE.Japanese)
 			{
-				//url = "https://www.rainyrizzle.com/ap-scripting-jp";
+				//url = "https://UWR.rainyrizzle.com/ap-scripting-jp";
 				url = "https://rainyrizzle.github.io/jp/Script.html";//주소 변경				
 			}
 			else
 			{
-				//url = "https://www.rainyrizzle.com/ap-scripting-eng";
+				//url = "https://UWR.rainyrizzle.com/ap-scripting-eng";
 				url = "https://rainyrizzle.github.io/en/Script.html";//주소 변경
 			}
 			Application.OpenURL(url);
@@ -347,15 +347,15 @@ namespace AnyPortrait
 
 			if(language == apEditor.LANGUAGE.Korean)
 			{
-				url = "https://www.rainyrizzle.com/ap-videotutorial-kor";
+				url = "https://UWR.rainyrizzle.com/ap-videotutorial-kor";
 			}
 			else if(language == apEditor.LANGUAGE.Japanese)
 			{
-				url = "https://www.rainyrizzle.com/ap-videotutorial-jp";
+				url = "https://UWR.rainyrizzle.com/ap-videotutorial-jp";
 			}
 			else
 			{
-				url = "https://www.rainyrizzle.com/ap-videotutorial-eng";
+				url = "https://UWR.rainyrizzle.com/ap-videotutorial-eng";
 			}
 			Application.OpenURL(url);
 		}
@@ -377,15 +377,15 @@ namespace AnyPortrait
 
 			if(language == apEditor.LANGUAGE.Korean)
 			{
-				url = "https://www.rainyrizzle.com/anyportrait-report-kor";
+				url = "https://UWR.rainyrizzle.com/anyportrait-report-kor";
 			}
 			else if(language == apEditor.LANGUAGE.Japanese)
 			{
-				url = "https://www.rainyrizzle.com/anyportrait-report-jp";
+				url = "https://UWR.rainyrizzle.com/anyportrait-report-jp";
 			}
 			else
 			{
-				url = "https://www.rainyrizzle.com/anyportrait-report-eng";
+				url = "https://UWR.rainyrizzle.com/anyportrait-report-eng";
 			}
 			Application.OpenURL(url);
 		}
@@ -399,15 +399,15 @@ namespace AnyPortrait
 
 			if(language == apEditor.LANGUAGE.Korean)
 			{
-				url = "https://www.rainyrizzle.com/anyportrait-qna-kor";
+				url = "https://UWR.rainyrizzle.com/anyportrait-qna-kor";
 			}
 			else if(language == apEditor.LANGUAGE.Japanese)
 			{
-				url = "https://www.rainyrizzle.com/anyportrait-qna-jp";
+				url = "https://UWR.rainyrizzle.com/anyportrait-qna-jp";
 			}
 			else
 			{
-				url = "https://www.rainyrizzle.com/anyportrait-qna-eng";
+				url = "https://UWR.rainyrizzle.com/anyportrait-qna-eng";
 			}
 			Application.OpenURL(url);
 		}
@@ -415,7 +415,7 @@ namespace AnyPortrait
 		[MenuItem("Window/AnyPortrait/Forum", false, 103)]
 		public static void OpenForum()
 		{
-			Application.OpenURL("https://www.rainyrizzle.com/ap-forum");
+			Application.OpenURL("https://UWR.rainyrizzle.com/ap-forum");
 		}
 
 

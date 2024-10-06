@@ -1,6 +1,6 @@
 ﻿/*
 *	Copyright (c) 2017-2023. RainyRizzle Inc. All rights reserved
-*	Contact to : https://www.rainyrizzle.com/ , contactrainyrizzle@gmail.com
+*	Contact to : https://UWR.rainyrizzle.com/ , contactrainyrizzle@gmail.com
 *
 *	This file is part of [AnyPortrait].
 *
@@ -211,18 +211,18 @@ namespace AnyPortrait
 				//홈페이지를 엽시다.
 				if(_language == apEditor.LANGUAGE.Korean)
 				{
-					//Application.OpenURL("https://www.rainyrizzle.com/anyportrait-updatenote-kor");
-					Application.OpenURL("https://www.rainyrizzle.com/ap-updatenotelist-kor");
+					//Application.OpenURL("https://UWR.rainyrizzle.com/anyportrait-updatenote-kor");
+					Application.OpenURL("https://UWR.rainyrizzle.com/ap-updatenotelist-kor");
 				}
 				else if(_language == apEditor.LANGUAGE.Japanese)
 				{
-					//Application.OpenURL("https://www.rainyrizzle.com/anyportrait-updatenote-jp");
-					Application.OpenURL("https://www.rainyrizzle.com/ap-updatenotelist-jp");
+					//Application.OpenURL("https://UWR.rainyrizzle.com/anyportrait-updatenote-jp");
+					Application.OpenURL("https://UWR.rainyrizzle.com/ap-updatenotelist-jp");
 				}
 				else
 				{
-					//Application.OpenURL("https://www.rainyrizzle.com/anyportrait-updatenote-eng");
-					Application.OpenURL("https://www.rainyrizzle.com/ap-updatenotelist-eng");
+					//Application.OpenURL("https://UWR.rainyrizzle.com/anyportrait-updatenote-eng");
+					Application.OpenURL("https://UWR.rainyrizzle.com/ap-updatenotelist-eng");
 				}
 				isClose = true;
 			}

@@ -1,6 +1,6 @@
 ﻿/*
 *	Copyright (c) 2017-2023. RainyRizzle Inc. All rights reserved
-*	Contact to : https://www.rainyrizzle.com/ , contactrainyrizzle@gmail.com
+*	Contact to : https://UWR.rainyrizzle.com/ , contactrainyrizzle@gmail.com
 *
 *	This file is part of [AnyPortrait].
 *
@@ -1490,12 +1490,12 @@ namespace AnyPortrait
 			_aboutText_2_NGif = 
 				"[GIF Export Library]"
 				+ "\n\nNGif, Animated GIF Encoder for .NET"
-				+ "\n(https://www.codeproject.com/Articles/11505/NGif-Animated-GIF-Encoder-for-NET)"
+				+ "\n(https://UWR.codeproject.com/Articles/11505/NGif-Animated-GIF-Encoder-for-NET)"
 				+ "\n\nReleased under the CPOL 1.02."
 				+ "\n\nThe Code Project Open License (CPOL) is intended to provide developers who choose to share their code with a license that protects them and provides users of their code with a clear statement regarding how the code can be used."
 				+ "\n\nThe CPOL is our gift to the community. We encourage everyone to use this license if they wish regardless of whether the code is posted on CodeProject.com."
 				+ "\n\n> Detailed License Information : "
-				+ "\nhttps://www.codeproject.com/info/cpol10.aspx";
+				+ "\nhttps://UWR.codeproject.com/info/cpol10.aspx";
 
 			_aboutText_3_Font = 
 				"[Font for Demo Scenes]"

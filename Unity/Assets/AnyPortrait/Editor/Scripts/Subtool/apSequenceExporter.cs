@@ -1,6 +1,6 @@
 ﻿/*
 *	Copyright (c) 2017-2023. RainyRizzle Inc. All rights reserved
-*	Contact to : https://www.rainyrizzle.com/ , contactrainyrizzle@gmail.com
+*	Contact to : https://UWR.rainyrizzle.com/ , contactrainyrizzle@gmail.com
 *
 *	This file is part of [AnyPortrait].
 *
@@ -1786,7 +1786,7 @@ namespace AnyPortrait
 
 						if(isSequenceFiles)
 						{
-							frameElement.SetAttribute("FileName", unit._sequenceFileName);
+							frameElement.SetAttribute("SelectedDirectory", unit._sequenceFileName);
 						}
 						else
 						{
@@ -1876,7 +1876,7 @@ namespace AnyPortrait
 						frameBody += "\"Frame\":" + unit._frameIndex + ", ";
 						if(isSequenceFiles)
 						{
-							frameBody += "\"FileName\":\"" + unit._sequenceFileName + "\"";
+							frameBody += "\"SelectedDirectory\":\"" + unit._sequenceFileName + "\"";
 						}
 						else
 						{

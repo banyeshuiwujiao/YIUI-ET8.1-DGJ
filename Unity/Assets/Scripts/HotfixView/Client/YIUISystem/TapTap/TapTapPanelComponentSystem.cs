@@ -21,7 +21,7 @@ namespace ET.Client
             self.u_ComText_NoRaycastText.text = "";
             self.u_ComScrollViewText_NoRaycastScrollRect.gameObject.SetActive(false);
             self.u_ComServerNoticeText.gameObject.SetActive(false);
-            self.u_ComButton_StartButton.gameObject.SetActive(false);
+            //self.u_ComButton_StartButton.gameObject.SetActive(false);
         }
 
         [EntitySystem]

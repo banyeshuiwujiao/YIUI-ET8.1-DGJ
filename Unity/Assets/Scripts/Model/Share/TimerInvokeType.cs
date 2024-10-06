@@ -15,5 +15,7 @@
         public const int SessionAcceptTimeout = 203;
         
         public const int RoomUpdate = 301;
+        public const int ComfyUIConnectionTimer = 302;
+
     }
 }

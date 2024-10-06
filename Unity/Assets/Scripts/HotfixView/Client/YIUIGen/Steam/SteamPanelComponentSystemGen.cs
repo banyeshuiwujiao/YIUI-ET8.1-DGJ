@@ -37,7 +37,10 @@ namespace ET.Client
             self.UIPanel.Priority = 0;
             self.UIPanel.CachePanelTime = 10;
 
+            self.u_ComButton_ComfyUIButton = self.UIBase.ComponentTable.FindComponent<UnityEngine.UI.Button>("u_ComButton_ComfyUIButton");
+            self.u_ComGreenRectTransform = self.UIBase.ComponentTable.FindComponent<UnityEngine.RectTransform>("u_ComGreenRectTransform");
             self.u_ComButton_StartButton = self.UIBase.ComponentTable.FindComponent<UnityEngine.UI.Button>("u_ComButton_StartButton");
+            self.u_ComDescriptionTextMeshProUGUI = self.UIBase.ComponentTable.FindComponent<TMPro.TextMeshProUGUI>("u_ComDescriptionTextMeshProUGUI");
 
         }
     }

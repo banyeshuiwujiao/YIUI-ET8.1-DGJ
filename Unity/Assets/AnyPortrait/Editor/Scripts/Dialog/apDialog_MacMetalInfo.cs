@@ -1,6 +1,6 @@
 ﻿/*
 *	Copyright (c) 2017-2023. RainyRizzle Inc. All rights reserved
-*	Contact to : https://www.rainyrizzle.com/ , contactrainyrizzle@gmail.com
+*	Contact to : https://UWR.rainyrizzle.com/ , contactrainyrizzle@gmail.com
 *
 *	This file is part of [AnyPortrait].
 *
@@ -111,7 +111,7 @@ namespace AnyPortrait
 					_str_Webpage = "Learn more";
 					_str_Close = "Close";
 					_str_ShowStartup = "Show this Screen at startup";
-					_url_LeranMore = "https://www.rainyrizzle.com/apam-macstuttering-eng";
+					_url_LeranMore = "https://UWR.rainyrizzle.com/apam-macstuttering-eng";
 					break;
 
 				case apEditor.LANGUAGE.Korean:
@@ -119,7 +119,7 @@ namespace AnyPortrait
 					_str_Webpage = "자세한 내용 보기";
 					_str_Close = "닫기";
 					_str_ShowStartup = "시작할 때마다 항상 보임";
-					_url_LeranMore = "https://www.rainyrizzle.com/apam-macstuttering-kor";
+					_url_LeranMore = "https://UWR.rainyrizzle.com/apam-macstuttering-kor";
 					break;
 
 				case apEditor.LANGUAGE.French:
@@ -127,7 +127,7 @@ namespace AnyPortrait
 					_str_Webpage = "Apprendre encore plus";
 					_str_Close = "Fermer";
 					_str_ShowStartup = "Afficher cet écran au démarrage";
-					_url_LeranMore = "https://www.rainyrizzle.com/apam-macstuttering-eng";
+					_url_LeranMore = "https://UWR.rainyrizzle.com/apam-macstuttering-eng";
 					break;
 
 				case apEditor.LANGUAGE.German:
@@ -135,7 +135,7 @@ namespace AnyPortrait
 					_str_Webpage = "Erfahren Sie mehr";
 					_str_Close = "Schließen";
 					_str_ShowStartup = "Zeigen Sie dies beim Start an";
-					_url_LeranMore = "https://www.rainyrizzle.com/apam-macstuttering-eng";
+					_url_LeranMore = "https://UWR.rainyrizzle.com/apam-macstuttering-eng";
 					break;
 
 				case apEditor.LANGUAGE.Spanish:
@@ -143,7 +143,7 @@ namespace AnyPortrait
 					_str_Webpage = "Aprende más";
 					_str_Close = "Cerca";
 					_str_ShowStartup = "Mostrar esta pantalla al inicio";
-					_url_LeranMore = "https://www.rainyrizzle.com/apam-macstuttering-eng";
+					_url_LeranMore = "https://UWR.rainyrizzle.com/apam-macstuttering-eng";
 					break;
 
 				case apEditor.LANGUAGE.Italian:
@@ -151,7 +151,7 @@ namespace AnyPortrait
 					_str_Webpage = "Per saperne di più";
 					_str_Close = "Vicino";
 					_str_ShowStartup = "Mostra questa schermata all'avvio";
-					_url_LeranMore = "https://www.rainyrizzle.com/apam-macstuttering-eng";
+					_url_LeranMore = "https://UWR.rainyrizzle.com/apam-macstuttering-eng";
 					break;
 
 				case apEditor.LANGUAGE.Danish:
@@ -159,7 +159,7 @@ namespace AnyPortrait
 					_str_Webpage = "Lær mere";
 					_str_Close = "Tæt";
 					_str_ShowStartup = "Vis denne skærm i starten";
-					_url_LeranMore = "https://www.rainyrizzle.com/apam-macstuttering-eng";
+					_url_LeranMore = "https://UWR.rainyrizzle.com/apam-macstuttering-eng";
 					break;
 
 				case apEditor.LANGUAGE.Japanese:
@@ -167,7 +167,7 @@ namespace AnyPortrait
 					_str_Webpage = "もっと詳しく知る";
 					_str_Close = "閉じる";
 					_str_ShowStartup = "起動時にこの画面を表示する";
-					_url_LeranMore = "https://www.rainyrizzle.com/apam-macstuttering-jp";
+					_url_LeranMore = "https://UWR.rainyrizzle.com/apam-macstuttering-jp";
 					break;
 
 				case apEditor.LANGUAGE.Chinese_Traditional:
@@ -175,7 +175,7 @@ namespace AnyPortrait
 					_str_Webpage = "學到更多";
 					_str_Close = "關閉";
 					_str_ShowStartup = "在啟動時顯示此屏幕";
-					_url_LeranMore = "https://www.rainyrizzle.com/apam-macstuttering-eng";
+					_url_LeranMore = "https://UWR.rainyrizzle.com/apam-macstuttering-eng";
 					break;
 
 				case apEditor.LANGUAGE.Chinese_Simplified:
@@ -183,7 +183,7 @@ namespace AnyPortrait
 					_str_Webpage = "学到更多";
 					_str_Close = "关闭";
 					_str_ShowStartup = "在启动时显示此屏幕";
-					_url_LeranMore = "https://www.rainyrizzle.com/apam-macstuttering-eng";
+					_url_LeranMore = "https://UWR.rainyrizzle.com/apam-macstuttering-eng";
 					break;
 
 				case apEditor.LANGUAGE.Polish:
@@ -191,7 +191,7 @@ namespace AnyPortrait
 					_str_Webpage = "Ucz się więcej";
 					_str_Close = "Zamknąć";
 					_str_ShowStartup = "Pokaż to przy starcie";
-					_url_LeranMore = "https://www.rainyrizzle.com/apam-macstuttering-eng";
+					_url_LeranMore = "https://UWR.rainyrizzle.com/apam-macstuttering-eng";
 					break;
 			}
 			

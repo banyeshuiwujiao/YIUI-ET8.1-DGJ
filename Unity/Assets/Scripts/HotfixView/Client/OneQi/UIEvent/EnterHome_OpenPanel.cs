@@ -5,10 +5,12 @@
     {
         protected override async ETTask Run(Scene root, EnterHome args)
         {
-            await YIUIMgrComponent.Inst.Root.OpenPanelAsync<HomePanelComponent>();
 #if PLATFORM_ANDROID
+            await YIUIMgrComponent.Inst.Root.OpenPanelAsync<HomePanelComponent>();
             await YIUIMgrComponent.Inst.ClosePanelAsync<TapTapPanelComponent>();
 #else
+            //root.RemoveComponent<ConnectComfyUIComponent>();
+            await YIUIMgrComponent.Inst.Root.OpenPanelAsync<HomePanelComponent>();
             await YIUIMgrComponent.Inst.ClosePanelAsync<SteamPanelComponent>();
 #endif
         }

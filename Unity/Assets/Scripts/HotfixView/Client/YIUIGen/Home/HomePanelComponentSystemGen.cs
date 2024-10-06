@@ -32,10 +32,9 @@ namespace ET.Client
             self.u_UIPanel = self.UIBase.GetComponent<YIUIPanelComponent>();
             self.UIWindow.WindowOption = EWindowOption.None;
             self.UIPanel.Layer = EPanelLayer.Panel;
-            self.UIPanel.PanelOption = EPanelOption.TimeCache;
+            self.UIPanel.PanelOption = EPanelOption.DisClose;
             self.UIPanel.StackOption = EPanelStackOption.VisibleTween;
             self.UIPanel.Priority = 0;
-            self.UIPanel.CachePanelTime = 10;
 
             self.u_ComPlayButton = self.UIBase.ComponentTable.FindComponent<UnityEngine.UI.Button>("u_ComPlayButton");
 

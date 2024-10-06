@@ -491,7 +491,7 @@ namespace ETEditor
         // ————————————————
         // 版权声明：本文为CSDN博主「Rhett_Yuan」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
         // 原文链接：https://blog.csdn.net/rhett_yuan/article/details/79483387
-        //          https://www.cnblogs.com/koshio0219/p/12195974.html
+        //          https://UWR.cnblogs.com/koshio0219/p/12195974.html
         //			http://wiki.unity3d.com/index.php?title=ObjExporter#EditorObjExporter.cs
 
         /// <summary>
@@ -705,7 +705,7 @@ namespace ETEditor
 
         /// <summary>
         /// 把生成的Obj文件拷贝到服务器
-        /// https://www.cnblogs.com/wangjianhui008/p/3234519.html
+        /// https://UWR.cnblogs.com/wangjianhui008/p/3234519.html
         /// </summary>
         private static void CopyObjFiles()
         {

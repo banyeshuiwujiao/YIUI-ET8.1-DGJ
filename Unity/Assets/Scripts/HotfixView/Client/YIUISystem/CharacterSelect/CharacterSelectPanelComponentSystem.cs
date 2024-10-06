@@ -11,6 +11,10 @@
         [EntitySystem]
         private static void YIUIInitialize(this CharacterSelectPanelComponent self)
         {
+            self.u_ComButton_HomeButton.onClick.AddListener(() =>
+            {
+                EventSystem.Instance.Publish(self.Root(), new BacktoHome() { });
+            });
         }
 
         [EntitySystem]

@@ -1,6 +1,6 @@
 ﻿/*
 *	Copyright (c) 2017-2023. RainyRizzle Inc. All rights reserved
-*	Contact to : https://www.rainyrizzle.com/ , contactrainyrizzle@gmail.com
+*	Contact to : https://UWR.rainyrizzle.com/ , contactrainyrizzle@gmail.com
 *
 *	This file is part of [AnyPortrait].
 *
@@ -7114,7 +7114,7 @@ namespace AnyPortrait
 			while (true)
 			{
 
-				//Debug.Log("Progress : " + www.progress + " (" + totalTime + ")");
+				//Debug.Log("Progress : " + UWR.progress + " (" + totalTime + ")");
 				//<< 유니티 2018.3 관련 API 분기 >>
 #if UNITY_2018_3_OR_NEWER
 				if(www.isDone || www.downloadProgress >= 1.0f)
@@ -7123,7 +7123,7 @@ namespace AnyPortrait
 #endif
 
 				{
-					//Debug.Log("Progress >> Completed : " + www.progress + " (" + totalTime + ")");
+					//Debug.Log("Progress >> Completed : " + UWR.progress + " (" + totalTime + ")");
 					break;
 				}
 
@@ -7131,7 +7131,7 @@ namespace AnyPortrait
 				if (CheckWaitTime(1.0f))
 				{
 					totalTime += 1.0f;
-					//Debug.Log("Progress : " + www.progress + " (" + totalTime + ")");
+					//Debug.Log("Progress : " + UWR.progress + " (" + totalTime + ")");
 					if (totalTime > 20.0f)
 					{
 						yield break;
@@ -7163,7 +7163,7 @@ namespace AnyPortrait
 				if (CheckWaitTime(1.0f))
 				{
 					totalTime += 1.0f;
-					//Debug.Log("Progress : " + www.progress + " (" + totalTime + ")");
+					//Debug.Log("Progress : " + UWR.progress + " (" + totalTime + ")");
 					if (totalTime > 20.0f)
 					{
 						yield break;
@@ -7179,11 +7179,11 @@ namespace AnyPortrait
 			if (!www.isDone)
 			{
 				//처리가 되지 않았다.
-				//Debug.LogError("Request > Not Downloading : " + www.progress + " / " + www.isDone);
+				//Debug.LogError("Request > Not Downloading : " + UWR.progress + " / " + UWR.isDone);
 				yield break;
 			}
 
-			//Debug.Log("Request > Finished : " + www.progress + " / " + www.isDone);
+			//Debug.Log("Request > Finished : " + UWR.progress + " / " + UWR.isDone);
 
 			if (_funcCheckCurrentVersion == null)
 			{
@@ -7206,7 +7206,7 @@ namespace AnyPortrait
 #endif
 					if (downloadedText.Contains(strKey))
 					{
-						//Debug.LogWarning("Result\n" + www.text);
+						//Debug.LogWarning("Result\n" + UWR.text);
 						int textLength = downloadedText.Length;
 						int iStart = downloadedText.IndexOf(strKey);
 						int sampleLength = strKey.Length + 20;
