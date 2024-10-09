@@ -38,10 +38,6 @@ namespace ET.Client
             self.UIPanel.CachePanelTime = 10;
 
             self.u_ComButton_StartButton = self.UIBase.ComponentTable.FindComponent<UnityEngine.UI.Button>("u_ComButton_StartButton");
-            self.u_ComStart_ComfyButton = self.UIBase.ComponentTable.FindComponent<UnityEngine.UI.Button>("u_ComStart_ComfyButton");
-            self.u_ComScrollViewText_NoRaycastScrollRect = self.UIBase.ComponentTable.FindComponent<UnityEngine.UI.ScrollRect>("u_ComScrollViewText_NoRaycastScrollRect");
-            self.u_ComText_NoRaycastText = self.UIBase.ComponentTable.FindComponent<UnityEngine.UI.Text>("u_ComText_NoRaycastText");
-            self.u_ComServerNoticeText = self.UIBase.ComponentTable.FindComponent<UnityEngine.UI.Text>("u_ComServerNoticeText");
 
         }
     }

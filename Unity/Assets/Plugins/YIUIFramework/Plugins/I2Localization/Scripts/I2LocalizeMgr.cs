@@ -28,7 +28,7 @@ namespace I2.Loc
         [ValueDropdown("GetAllLanguageKeys")]
         [DisableIf("OnValueChangeIf")]
         #endif
-        private string m_DefaultLanguage = "Chinese";
+        private string m_DefaultLanguage = "English";
 
         [ShowInInspector]
         #if UNITY_EDITOR

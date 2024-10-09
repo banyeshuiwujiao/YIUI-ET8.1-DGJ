@@ -11953,7 +11953,9 @@ MonoBehaviour:
   AddSpacesToJoinedLanguages: 0
   AllowLocalizedParameters: 1
   AllowParameters: 1
-  TranslatedObjects: []
+  TranslatedObjects:
+  - {fileID: 1856894876812570083}
+  - {fileID: 365501507080923257}
   LocalizeEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -12252,7 +12254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344445a89b4f74a0e9a0a766903df87e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTerm: Title
+  mTerm: MainTitle
   mTermSecondary: '-'
   PrimaryTermModifier: 0
   SecondaryTermModifier: 0

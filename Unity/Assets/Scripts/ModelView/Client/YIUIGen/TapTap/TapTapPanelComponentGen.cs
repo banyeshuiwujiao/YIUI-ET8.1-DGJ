@@ -22,10 +22,6 @@ namespace ET.Client
         public EntityRef<YIUIPanelComponent> u_UIPanel;
         public YIUIPanelComponent UIPanel => u_UIPanel;
         public UnityEngine.UI.Button u_ComButton_StartButton;
-        public UnityEngine.UI.Button u_ComStart_ComfyButton;
-        public UnityEngine.UI.ScrollRect u_ComScrollViewText_NoRaycastScrollRect;
-        public UnityEngine.UI.Text u_ComText_NoRaycastText;
-        public UnityEngine.UI.Text u_ComServerNoticeText;
 
     }
 }
